@@ -1,4 +1,4 @@
-# wp_bootatrap_pagination
+# wp_bootstrap_pagination
 Cover all types of pagination within wordpress: Link pages, numeric archives, next and previous posts and comments
 
 ## Usage
