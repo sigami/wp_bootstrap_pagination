@@ -2,7 +2,7 @@
 /**
  * Class Name: wp_boostrap_pagination
  * GitHub URI: https://github.com/sigami/wp_boostrap_pagination
- * Description: Cover all types of pagination within wordpress link pages, numeric archives and posts
+ * Description: Cover all types of pagination within WordPress. Link pages, Numeric archives and next/previous posts.
  * Version: 1.0
  * Author: Miguel Sirvent
  */
