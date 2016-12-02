@@ -1,12 +1,12 @@
 <?php
 /**
- * Class Name: wp_boostrap_pagination
- * GitHub URI: https://github.com/sigami/wp_boostrap_pagination
+ * Class Name: wp_bootstrap_pagination
+ * GitHub URI: https://github.com/sigami/wp_bootstrap_pagination
  * Description: Cover all types of pagination within WordPress. Link pages, Numeric archives and next/previous posts.
- * Version: 1.0
+ * Version: 1.1
  * Author: Miguel Sirvent
  */
-class  wp_boostrap_pagination {
+class  wp_bootstrap_pagination {
 	private static $instance = null;
 
 	public static function instance() {
@@ -17,7 +17,7 @@ class  wp_boostrap_pagination {
 		return self::$instance;
 	}
 
-	private function wp_boostrap_pagination() {
+	private function __construct() {
 		/** wp page links */
 		add_filter( 'wp_link_pages_args', __CLASS__ . '::' . 'wp_link_pages_args' );
 		add_filter( 'wp_link_pages_link', __CLASS__ . '::' . 'wp_link_pages_link', 10, 2 );
