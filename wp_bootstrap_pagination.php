@@ -1,9 +1,10 @@
 <?php
+
 /**
  * Class Name: wp_bootsrap_pagination
  * GitHub URI: https://github.com/sigami/wp_bootsrap_pagination
  * Description: Cover all types of pagination within wordpress link pages, numeric archives and posts
- * Version: 1.2
+ * Version: 1.3
  * Author: Miguel Sirvent
  */
 class  wp_bootsrap_pagination {
@@ -120,11 +121,10 @@ class  wp_bootsrap_pagination {
 			echo '<li class="prev"><a href="' . get_pagenum_link() . '" title="' . $args['first_page_title'] . '">' . $first_page_text . '</a></li>';
 		}
 
-		$prevposts = get_previous_posts_link( $args['prev_text'] );
-		if ( $prevposts ) {
-			echo '<li>' . $prevposts . '</li>';
-		} else {
+		if ( $paged == 1 ) {
 			echo '<li class="disabled"><a href="#">' . $args['prev_text'] . '</a></li>';
+		} else {
+			echo '<li>' . get_previous_posts_link( $args['prev_text'] ) . '</li>';
 		}
 
 		for ( $i = $start_page; $i <= $end_page; $i ++ ) {
@@ -134,14 +134,21 @@ class  wp_bootsrap_pagination {
 				echo '<li><a href="' . get_pagenum_link( $i ) . '">' . $i . '</a></li>';
 			}
 		}
+
+		if ( ( $max_page > $pages_to_show ) && ( $paged != ( $max_page - 1 ) ) ) {
+			echo '<li class="disabled"><a href="#">...</a></li>';
+		}
+
+		if ( $end_page < $max_page ) {
+			echo '<li class="next"><a href="' . get_pagenum_link( $max_page ) . '" title="' . $args['last_page_title'] . '">' . $max_page . '</a></li>';
+		}
+
 		echo '<li class="">';
 		next_posts_link( $args['next_text'], $end_page );
 		echo '</li>';
-		if ( $end_page < $max_page ) {
-			$last_page_text = $args['last_page_text'];
-			echo '<li class="next"><a href="' . get_pagenum_link( $max_page ) . '" title="' . $args['last_page_title'] . '">' . $last_page_text . '</a></li>';
-		}
+
 		echo '</ul></div>' . $args['after'];
+
 	}
 
 	static function comments_numeric( $args = array(), $query = null ) {
