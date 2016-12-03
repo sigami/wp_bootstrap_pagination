@@ -145,7 +145,7 @@ class  wp_bootstrap_pagination {
 			}
 		}
 		echo '<li class="">';
-		next_posts_link( $args['next_text'] );
+		next_posts_link( $args['next_text'], $end_page );
 		echo '</li>';
 		if ( $end_page < $max_page ) {
 			$last_page_text = $args['last_page_text'];
