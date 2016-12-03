@@ -181,4 +181,4 @@ class  wp_bootstrap_pagination {
 
 }
 
-wp_boostrap_pagination::instance();
+wp_bootstrap_pagination::instance();
