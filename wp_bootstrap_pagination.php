@@ -3,7 +3,7 @@
  * Class Name: wp_bootstrap_pagination
  * GitHub URI: https://github.com/sigami/wp_bootstrap_pagination
  * Description: Cover all types of pagination within WordPress. Link pages, Numeric archives and next/previous posts.
- * Version: 1.1
+ * Version: 1.2
  * Author: Miguel Sirvent
  */
 class  wp_bootstrap_pagination {
@@ -75,7 +75,7 @@ class  wp_bootstrap_pagination {
 		echo $navigation;
 	}
 
-	static function numeric( $args = array()) {
+	static function numeric( $args = array() ) {
 
 		$args = wp_parse_args( $args, array(
 			'prev_text'        => '<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>' . __( 'Previous', 'text_domain' ),
@@ -90,7 +90,7 @@ class  wp_bootstrap_pagination {
 			'query'            => null,
 		) );
 		if ( $args['query'] instanceof WP_Query ) {
-			$wp_query =  $args['query'];
+			$wp_query = $args['query'];
 		} else {
 			global $wp_query;
 		}
@@ -158,22 +158,22 @@ class  wp_bootstrap_pagination {
 		//TODO
 	}
 
-	static function comments_simple($args = array()){
+	static function comments_simple( $args = array() ) {
 		$args = wp_parse_args( $args, array(
-			'screen_reader_text'        => esc_html__( 'Comment navigation', 'text_domain' ),
-			'next_text'        => esc_html__( 'Newer Comments %s', 'text_domain' ),
-			'next_icon'=>'<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>',
-			'previous_text'  => esc_html__( '%s Older Comments', 'text_domain' ),
-			'previous_icon'=>'<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>',
+			'screen_reader_text' => esc_html__( 'Comment navigation', 'text_domain' ),
+			'next_text'          => esc_html__( 'Newer Comments %s', 'text_domain' ),
+			'next_icon'          => '<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>',
+			'previous_text'      => esc_html__( '%s Older Comments', 'text_domain' ),
+			'previous_icon'      => '<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>',
 		) );
 		?>
 		<h2 class="screen-reader-text"><?php echo $args['screen_reader_text'] ?></h2>
 		<ul class="pager">
 			<li class="previous">
-				<?php previous_comments_link( sprintf( $args['previous_text'],$args['previous_icon'] ) ); ?>
+				<?php previous_comments_link( sprintf( $args['previous_text'], $args['previous_icon'] ) ); ?>
 			</li>
 			<li class="next">
-				<?php next_comments_link( sprintf( $args['next_text'],$args['next_icon'] ) ); ?>
+				<?php next_comments_link( sprintf( $args['next_text'], $args['next_icon'] ) ); ?>
 			</li>
 		</ul>
 		<?php
